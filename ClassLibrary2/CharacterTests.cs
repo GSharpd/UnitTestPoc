@@ -8,7 +8,7 @@ namespace UnitTestPoc.Tests
     public class CharacterTests
     {
         [Test]
-        public void TestHuman()
+        public void Damage_8_HealthEquals2()
         {
             Character charOne = new Character(Race.Human);
             charOne.Damage(8);
@@ -16,7 +16,7 @@ namespace UnitTestPoc.Tests
         }
 
         [Test]
-        public void TestElf()
+        public void Damage_10_CharDead()
         {
             Character charTwo = new Character(Race.Elf);
             charTwo.Damage(10);
@@ -24,7 +24,7 @@ namespace UnitTestPoc.Tests
         }
 
         [Test]
-        public void TestOrc()
+        public void StrengthUp_10_GreaterThan13()
         {
             Character orc = new Character(Race.Orc);
             orc.Strength = orc.Strength + 10;
@@ -32,7 +32,7 @@ namespace UnitTestPoc.Tests
         }
 
         [Test]
-        public void TestLvlUp()
+        public void LevelUp_Elf_AgilMoreThan12()
         {
             Character elf = new Character(Race.Elf);
             elf.LevelUp(Race.Elf);
