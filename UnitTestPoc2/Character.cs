@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnitTestPoc2;
 
 namespace UnitTestPoc
 {
@@ -32,6 +33,8 @@ namespace UnitTestPoc
             return Dead;
         }
 
+        public List<Gear> Equipment { get; set; }
+
         public void FillHuman()
         {
             Strength = 10;
@@ -46,6 +49,18 @@ namespace UnitTestPoc
             Agility = 12;
             Health = 8;
             Energy = 12;
+            Equipment = new List<Gear>
+            {
+                new Gear("Bow", 2, 4, 1, 3),
+                new Gear("Armor", 1, 1, 5, 3)
+            };
+            foreach(Gear g in Equipment)
+            {
+                Strength = Strength + g.Strength;
+                Agility = Agility + g.Agility;
+                Health = Health + g.Health;
+                Energy = Energy + g.Energy;
+            }
         }
 
         public void FillOrc()

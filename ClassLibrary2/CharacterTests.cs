@@ -20,7 +20,7 @@ namespace UnitTestPoc.Tests
         {
             Character charTwo = new Character(Race.Elf);
             charTwo.Damage(10);
-            Assert.That(charTwo.Dead, Is.True);
+            Assert.That(charTwo.Dead, Is.False);
         }
 
         [Test]
