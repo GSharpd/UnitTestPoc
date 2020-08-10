@@ -1,6 +1,6 @@
 ﻿using System;
-using NUnit;
 using NUnit.Framework;
+using UnitTestPoc2;
 
 namespace UnitTestPoc.Tests
 {
@@ -37,6 +37,23 @@ namespace UnitTestPoc.Tests
             Character elf = new Character(Race.Elf);
             elf.LevelUp(Race.Elf);
             Assert.That(elf.Agility, Is.GreaterThan(12));
+        }
+
+        [Test]
+        public void Unequip_Bow_ExpectAgi13()
+        {
+            Character elf = new Character(Race.Elf);
+            elf.UnequipItem("Bow");
+            Assert.That(elf.Agility, Is.EqualTo(13));
+        }
+
+        [Test]
+        public void Equip_boots_ExpectAgi22()
+        {
+            Character elf = new Character(Race.Elf);
+            Gear boots = new Gear("Boots", 0, 5, 2, 4);
+            elf.EquipItem(boots);
+            Assert.That(elf.Agility, Is.EqualTo(22));
         }
     }
 }

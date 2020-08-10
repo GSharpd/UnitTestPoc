@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using UnitTestPoc2;
 
 namespace UnitTestPoc
@@ -125,6 +126,26 @@ namespace UnitTestPoc
             Health = Health - dmg;
             IsDead();
             return Health;
+        }
+
+        public void UnequipItem(string name)
+        {
+            var unequip = Equipment.Single(e => e.EquipmentName == name);
+            if (unequip != null)
+                Equipment.Remove(unequip);
+            Strength -= unequip.Strength;
+            Agility -= unequip.Agility;
+            Health -= unequip.Health;
+            Energy -= unequip.Energy;
+        }
+
+        public void EquipItem(Gear gear)
+        {
+            Equipment.Add(gear);
+            Strength += gear.Strength;
+            Agility += gear.Agility;
+            Health += gear.Health;
+            Energy += gear.Energy;
         }
 
         public void LevelUp(Race race)
